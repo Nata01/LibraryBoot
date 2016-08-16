@@ -1,5 +1,6 @@
 package application.core.service.impl;
 
+import application.core.entity.Book;
 import application.core.service.BookService;
 
 /**
