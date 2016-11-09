@@ -16,7 +16,7 @@ public class Book {
 
     private String title;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "author_book",
             joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "author_id")}
@@ -30,8 +30,13 @@ public class Book {
     public Book() {
     }
 
-    public Book(Long id, String title, List<Author> authors, String libraryNumber, String imageName) {
-        this.id = id;
+    public Book(String title, String libraryNumber, String imageName) {
+        this.title = title;
+        this.libraryNumber = libraryNumber;
+        this.imageName = imageName;
+    }
+
+    public Book(String title, List<Author> authors, String libraryNumber, String imageName) {
         this.title = title;
         this.authors = authors;
         this.libraryNumber = libraryNumber;
